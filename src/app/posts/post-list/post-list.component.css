@@ -1,0 +1,9 @@
+:host{
+  /* set elements as block and add spacing between posts */
+  display:block;
+  margin-top:1rem;
+}
+
+.info-text{
+  text-align: center;
+}

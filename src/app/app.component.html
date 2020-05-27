@@ -1,5 +1,11 @@
 <app-header></app-header>
 <main>
-  <app-post-create></app-post-create>
-  <app-post-list></app-post-list>
+  <!-- $event get access to anything you emmited -->
+  <!-- listening to postCreated and go to onPostAdded in app.ts -->
+  <app-post-create (postCreated)="onPostAdded($event)"></app-post-create>
+  <!-- pass storedPosts from app to posts in post-list.component.ts (angular change detection)-->
+  <app-post-list [posts] = "storedPosts"></app-post-list>
+
+
+  <!-- the first one is always the current var in the component and the right side is from app comp -->
 </main>

@@ -4,14 +4,16 @@ import {FormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // this is part of the material package
 //use the api tab in the angular material website
 
-//for the form
+//for post create
 import {MatInputModule} from '@angular/material/input'; // you have to do it this way with most recent version
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
-import {MatExpansionModule} from '@angular/material/expansion';
 
 //for the toolbar
 import {MatToolbarModule} from '@angular/material/toolbar';
+
+//for post list
+import {MatExpansionModule} from '@angular/material/expansion';
 
 //All the Component Declarations
 import { AppComponent } from './app.component';
@@ -35,7 +37,8 @@ import { PostListComponent } from './posts/post-list/post-list.component';
     MatInputModule,
     MatCardModule,
     MatButtonModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatExpansionModule
 
   ],
   providers: [],

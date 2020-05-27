@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter,Output } from '@angular/core';
+
+import {Post} from '../post.model';
+import { NgForm } from '@angular/forms';
 
 //typescript class
 @Component({
@@ -10,11 +13,23 @@ import { Component } from '@angular/core';
 }) //declarator to mark a class as a componet
 
 export class PostCreateComponent{
-  //what you put in here shows up first as default
-  newPost = 'No Content';
-  enteredValue = '';
-  onAddPost(){
+  //properties
+  enteredContent = '';
+  enteredTitle = '';
+
+  //add a decorator so that you can listen outside of this one component
+  //(the data we emmit is a post)
+  @Output() postCreated = new EventEmitter<Post>();
+
+  //NgForm is a angular mantained form
+  onAddPost(form:NgForm){
    // console.dir(postInput);
-    this.newPost = this.enteredValue;
-  }
+   //this.newPost = this.enteredValue;
+   if (form.invalid){
+     return;
+   }
+    const post:Post = {title:form.value.title,content:form.value.content};
+    this.postCreated.emit(post);
+
+  };
 }
