@@ -1,5 +1,9 @@
 import {Post} from './post.model';
 
+//makes angular aware of this service so it can find + create 1 instance of service for the app
+import {Injectable} from '@angular/core';
+@Injectable({providedIn:'root'})
+
 export class PostsService{
   //empty array of type Post
   private posts:Post[] = [];
@@ -16,5 +20,6 @@ export class PostsService{
    getPost (title: string, content:string){
      const post: Post = {title:title, content:content};
      this.posts.push(post);
+
    }
 }
